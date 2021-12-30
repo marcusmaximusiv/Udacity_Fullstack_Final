@@ -15,7 +15,14 @@ const cors = require('cors');
 const { request } = require('express');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('/src/client'));
+app.use(express.static('dist'))
+
+//console.log(__dirname + '/src')
+
+app.get('/', function (req, res) {
+    res.sendFile(path.resolve('./src/client/views/index.html'))
+})
+
 
 const port = 8000;
 // Setup Server
