@@ -15,7 +15,7 @@ const cors = require('cors');
 const { request } = require('express');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('dist'))
+app.use(express.static('/dist'))
 
 //console.log(__dirname + '/src')
 

@@ -1,6 +1,6 @@
 // Personal API Key for Geonames API
-let geoURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-let geoKey = '&appid=9155d1aa8ccb466f3b2cc890f412c65c&units=imperial';
+let geoURL = 'https://api.geonames.org/searchJSON?q=';
+let geoKey = '&username=marcusmaximusii';
 // Personal API Key for WeatherBit API
 let weatherURL = 'https://api.weatherbit.io/v2.0/current?city=';
 let weatherKey = '&key=fe124a0a145849bea341a8c0fcb6dc63&include=minutely';
