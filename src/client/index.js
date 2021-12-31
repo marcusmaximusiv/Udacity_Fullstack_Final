@@ -1,3 +1,2 @@
-import {performAction} from './js/app.js'
-
-console.log(performAction);
+import './styles/style.scss'
+import './js/app.js'

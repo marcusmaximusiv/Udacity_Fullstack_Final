@@ -10,9 +10,7 @@ let pixaKey = '&image_type=photo';
 // Event listener to add function to existing HTML DOM element
 // Function called by event listener */
 document.getElementById('generate').addEventListener('click', performAction);
-document.getElementById('plantrip').addEventListener('click', performAction);
-document.getElementById('itinerary').addEventListener('click', performAction);
-//Function to GET Web API Data
+//Function to GET API data
 function performAction(e){
     let newDestination = document.getElementById('destination').value;
     console.log(newDestination)

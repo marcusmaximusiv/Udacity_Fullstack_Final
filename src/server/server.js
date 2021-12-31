@@ -2,7 +2,6 @@
 let projectData = {};
 // Require Express to run server and routes
 const express = require('express');
-const path = require('path');
 // Start up an instance of app
 const app = express();
 /* Middleware*/
@@ -15,15 +14,7 @@ const cors = require('cors');
 const { request } = require('express');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('/dist'))
-
-//console.log(__dirname + '/src')
-
-app.get('/', function (req, res) {
-    res.sendFile(path.resolve('./src/client/views/index.html'))
-})
-
-
+app.use(express.static('dist'));
 const port = 8000;
 // Setup Server
 const server = app.listen(port, listening);
@@ -33,24 +24,22 @@ function listening(){
     console.log('Running on localhost: ${port}')
 };
 // GET route
-const data = [];
-
 app.get('/all', getData)
 function getData(req, res){
   res.send(projectData)
   console.log(data)
 }
-/*
-//POST weather data
-app.post('/addWeather', addWeather)
+//POST  data
+app.post('/addDate', addDate)
 
-function addWeather (req, res){
+function addDate (req, res){
    
   newEntry ={
-    date: req.body.date,
     city: req.body.city,
+    date: req.body.date,
     temp: req.body.temp,
-    content: req.body.content
+    weather: req.body.weather,
+    locationphoto: req.body.locationphoto
   }
 
   projectData = newEntry
@@ -58,4 +47,4 @@ function addWeather (req, res){
   console.log(data)
 
 }
-*/
+
