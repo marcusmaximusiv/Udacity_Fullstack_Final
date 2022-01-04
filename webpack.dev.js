@@ -8,6 +8,11 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
+    devServer: {
+        proxy: {
+          '/addDate': 'http://localhost:8000',
+        },
+    },
     output: {
         libraryTarget:'var',
         library: 'Client'
