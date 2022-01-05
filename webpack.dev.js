@@ -10,7 +10,8 @@ module.exports = {
     stats: 'verbose',
     devServer: {
         proxy: {
-          '/addDate': 'http://localhost:8000',
+            '/addDate': 'http://localhost:8000',
+            '/all': 'http://localhost:8000',
         },
     },
     output: {

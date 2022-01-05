@@ -23,17 +23,23 @@ function performClear(e){
 function performAction(e){
     let newDestination = document.getElementById('destination').value;
     console.log(newDestination)
-    LocationInfo(geoURL,newDestination, geoKey).then(() => {
-      LocationWeather(weatherURL,newDestination, weatherKey).then(() => {
-        LocationPhoto(pixaURL,newDestination, pixaKey).then(() => {
-           const data = {};
-           postData("/addDate", data).then(() => {
-           updateUI();
+    LocationInfo(geoURL,newDestination, geoKey).then((geoData) => {
+      LocationWeather(weatherURL,newDestination, weatherKey).then((weatherData) => {
+        LocationPhoto(pixaURL,newDestination, pixaKey).then((pixaData) => {
+           const data = {
+              city: geoData.city,
+              date: geoData.date,
+              temp: weatherData.temp,
+              weather: weatherData.weather,
+              locationphoto: pixaData.locationphoto,
+           };
+            postData("/addDate", data).then(() => {
+              updateUI();
           });
         });
       });
     });
-}
+  }
 //This section of the code retrieves the data from GeoNames API
 const LocationInfo = async (geoURL,destination,geoKey)=>{
   const res = await fetch(geoURL+destination+geoKey)
@@ -43,7 +49,7 @@ const LocationInfo = async (geoURL,destination,geoKey)=>{
     console.log(data)
     console.log(data.geonames[0].name)
     console.log(departureDate)
-    postData('/addDate',{date: departureDate, city: data.geonames[0].name} )
+    return {date: departureDate, city: data.geonames[0].name};
   } catch(error){
     console.log("error", error);
   }
@@ -56,7 +62,7 @@ const LocationWeather = async (weatherURL,destination, weatherKey) =>{
     console.log(data)
     console.log(data.data[0].temp)
     console.log(data.data[0].weather.description)
-    postData('/addDate',{temp: data.data[0].temp, weather: data.date[0].weather.description} )
+    return{temp: data.data[0].temp, weather: data.date[0].weather.description}
   } catch(error){
     console.log("error", error);
   }
@@ -68,7 +74,7 @@ const LocationPhoto= async (pixaURL,destination,pixaKey)=>{
     const data = await res.json();
     console.log(data)
     console.log(data.hits[0].largeImageURL)
-    postData('/addDate',{locationphoto: data.hits[0].largeImageURL} )
+    return{locationphoto: data.hits[0].largeImageURL}
   } catch(error){
     console.log("error", error);
   }

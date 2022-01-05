@@ -43,8 +43,8 @@ function addDate (req, res){
   }
 
   projectData = newEntry
-  res.send(data)
-  console.log(data)
+  res.send(projectData)
+  console.log(projectData)
 
 }
 
