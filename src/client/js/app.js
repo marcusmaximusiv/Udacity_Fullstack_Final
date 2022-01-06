@@ -62,7 +62,7 @@ const LocationWeather = async (weatherURL,destination, weatherKey) =>{
     console.log(data)
     console.log(data.data[0].temp)
     console.log(data.data[0].weather.description)
-    return{temp: data.data[0].temp, weather: data.date[0].weather.description}
+    return{temp: data.data[0].temp, weather: data.data[0].weather.description}
   } catch(error){
     console.log("error", error);
   }

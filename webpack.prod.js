@@ -12,6 +12,10 @@ module.exports = {
     optimization: {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
+    proxy: {
+        '/addDate': 'http://localhost:8000',
+        '/all': 'http://localhost:8000',
+    },
     output: {
         libraryTarget:'var',
         library: 'Client'
