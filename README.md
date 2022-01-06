@@ -20,4 +20,5 @@ The functionality I chose was making users be able to delete their trip from the
 ## Note: Before running the below commands make sure you are in the root folder of the project when running these commands or it will not work
 * Install npm by running ```npm install``` to install all modules required for the project 
 * To view in development mode run the following command in your windows terminal```npm run build-dev```, a window will open automatically open
-* To view the production version of the project run the following command in your windows terminal ```npm run build-prod```, then ```npm start``` and open [http://localhost:3300/](http://localhost:3300/) in your prefered browser
+* To view the production version of the project run the following command in your windows terminal ```npm run build-prod```, then ```npm start``` and open [http://localhost:8000/](http://localhost:8000/) in your prefered browser
+
