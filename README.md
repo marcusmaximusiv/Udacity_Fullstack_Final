@@ -2,7 +2,7 @@
 This project is the final project for the Front End Developer Nanodegree program at Udacity.
 
 ## Task
-The aim of this project is to build out a travel app that obtains a desired trip location & date from the user, and returns via the UI interview the inputted date and location along with displaying the weather, image of the location, and the weather description for that particular data using the date obtained from the three external APIs (GeoNames, Pixabay, and Weather).
+The aim of this project is to build out a travel app that obtains a desired trip location & date from the user, and returns via the UI interview the inputted date and location along with displaying the weather, image of the location, and the weather description for that particular date using the data obtained from the three external APIs (GeoNames, Pixabay, and Weather).
 ## Tech stack
 1. Node.js
 2. JavaScript
