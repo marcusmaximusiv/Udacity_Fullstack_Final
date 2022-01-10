@@ -123,3 +123,22 @@ const updateUI = async () => {
       console.log("error",error)
   }
 }
+// Set an event listener on botton id called 'plantrip'
+document.getElementById('plantrip').addEventListener('click', scrollToTrip);
+//This function controls the scroll to function for plantrip 
+function scrollToTrip() {
+// Get the div of the plantrip section of index.html
+let planTripSec = document.getElementById('plan_trip');
+// Scroll to plan trip section
+planTripSec.scrollIntoView({behavior: "smooth"});
+}
+// Set an event listener on botton id called 'itinerary'
+document.getElementById('itinerary').addEventListener('click', scrollToItinerary);
+//This function controls the scroll to function for itinerary section
+function scrollToItinerary() {
+// Get the div of the itinerary section of index.html
+let ItinerarySec = document.getElementById('your_itinerary');
+// Scroll to plan trip section
+ItinerarySec.scrollIntoView({behavior: "smooth"});
+};
+
