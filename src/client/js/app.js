@@ -9,8 +9,25 @@ let pixaURL = 'https://pixabay.com/api/?key=24892556-bbc7094902e61376495938437&q
 let pixaKey = '&image_type=photo';
 // Event listener to add function to existing HTML DOM element
 // Function called by event listener */
-document.getElementById('generate').addEventListener('click', performAction);
-//document.getElementById('plantrip').addEventListener('click', performAction);
+// Set an event listener on botton id called 'plantrip'
+document.getElementById('plantrip').addEventListener('click', scrollToTrip());
+//This function controls the scroll to function for plantrip 
+function scrollToTrip() {
+// Get the div of the plantrip section of index.html
+let planTripSec = document.getElementById('plan_trip');
+// Scroll to plan trip section
+planTripSec.scrollIntoView({behavior: "smooth"});
+}
+// Set an event listener on botton id called 'itinerary'
+document.getElementById('itinerary').addEventListener('click', scrollToItinerary());
+//This function controls the scroll to function for itinerary section
+function scrollToItinerary() {
+// Get the div of the itinerary section of index.html
+let ItinerarySec = document.getElementById('your_itinerary');
+// Scroll to plan trip section
+ItinerarySec.scrollIntoView({behavior: "smooth"});
+};
+//Event Listener to clear elements 
 document.getElementById('removetrip').addEventListener('click', performClear);
 //Function to GET Web API Data
 function performClear(e){
@@ -20,6 +37,7 @@ function performClear(e){
   document.getElementById('weather').innerHTML = "";
   document.getElementById('locationphoto').innerHTML = "";
 }
+export {performClear};
 function performAction(e){
     let newDestination = document.getElementById('destination').value;
     console.log(newDestination)
@@ -40,6 +58,7 @@ function performAction(e){
       });
     });
   }
+  export {performAction};
 //This section of the code retrieves the data from GeoNames API
 const LocationInfo = async (geoURL,destination,geoKey)=>{
   const res = await fetch(geoURL+destination+geoKey)
@@ -67,6 +86,7 @@ const LocationWeather = async (weatherURL,destination, weatherKey) =>{
     console.log("error", error);
   }
 }
+
 //This section of the code retrieves the data from PixaBay and renders the image associated with it 
 const LocationPhoto= async (pixaURL,destination,pixaKey)=>{
   const res = await fetch(pixaURL+destination+pixaKey)
@@ -123,22 +143,6 @@ const updateUI = async () => {
       console.log("error",error)
   }
 }
-// Set an event listener on botton id called 'plantrip'
-document.getElementById('plantrip').addEventListener('click', scrollToTrip);
-//This function controls the scroll to function for plantrip 
-function scrollToTrip() {
-// Get the div of the plantrip section of index.html
-let planTripSec = document.getElementById('plan_trip');
-// Scroll to plan trip section
-planTripSec.scrollIntoView({behavior: "smooth"});
-}
-// Set an event listener on botton id called 'itinerary'
-document.getElementById('itinerary').addEventListener('click', scrollToItinerary);
-//This function controls the scroll to function for itinerary section
-function scrollToItinerary() {
-// Get the div of the itinerary section of index.html
-let ItinerarySec = document.getElementById('your_itinerary');
-// Scroll to plan trip section
-ItinerarySec.scrollIntoView({behavior: "smooth"});
-};
+
+
 
