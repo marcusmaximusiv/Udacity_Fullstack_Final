@@ -1,4 +1,3 @@
-import { performClear } from "../js/app";
 
 test('There is no data after Perform Clear', done => {
     function performClear(data) {
